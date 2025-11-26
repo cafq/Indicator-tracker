@@ -1,0 +1,32 @@
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #eef1f5;
+  margin: 0;
+}
+
+header {
+  background: #1b2a4e;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}

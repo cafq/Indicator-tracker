@@ -2,55 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>European Economic Dashboard</title>
+  <title>European Economic Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Plotly -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="nav-title">European Economic Dashboard</div>
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Indicators</a>
-    <a href="#">About</a>
-  </div>
-</nav>
+  <!-- NAVIGATION -->
+  <nav class="top-nav">
+    <div class="brand">
+      <div class="brand-logo">Q</div>
+      <div class="brand-text">
+        <span class="brand-title">European Economic Monitor</span>
+        <span class="brand-subtitle">Macroeconomic Indicators · France & Euro Area</span>
+      </div>
+    </div>
 
-<header class="hero">
-  <h1>Macroeconomic Indicators</h1>
-  <p>Updated automatically · OECD & ECB data · Built by Quentin</p>
-</header>
+    <div class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="#">Indicators</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
 
-<div class="container">
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Macro Indicators Overview</h1>
+    <p>
+      A clean, institutional dashboard tracking inflation, unemployment, GDP, industrial production,
+      current account, exchange rate, government bond yields and ECB policy rates.
+    </p>
+    <p class="hero-note">Static demo version — live OECD & ECB API update coming next.</p>
+  </header>
 
-  <div class="card">
-    <h2>Inflation – France vs Euro Area</h2>
-    <div id="inflationChart" class="chart"></div>
-  </div>
+  <!-- KPI CARDS -->
+  <section class="kpi-section">
+    <div class="kpi-card">
+      <div class="kpi-label">Inflation (FR)</div>
+      <div class="kpi-value" id="kpi-infl-fr">–</div>
+    </div>
 
-  <div class="card">
-    <h2>Unemployment – France vs Euro Area</h2>
-    <div id="unemploymentChart" class="chart"></div>
-  </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Inflation (EA)</div>
+      <div class="kpi-value" id="kpi-infl-ea">–</div>
+    </div>
 
-  <div class="card">
-    <h2>ECB Main Refinancing Rate</h2>
-    <div id="ecbChart" class="chart"></div>
-  </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Unemployment (FR)</div>
+      <div class="kpi-value" id="kpi-unemp-fr">–</div>
+    </div>
 
-</div>
+    <div class="kpi-card">
+      <div class="kpi-label">ECB Rate</div>
+      <div class="kpi-value" id="kpi-ecb">–</div>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2025 QC · Data from OECD API & ECB Data Hub</p>
-</footer>
+  <!-- MAIN GRID -->
+  <main class="main-grid">
 
-<script src="script.js"></script>
+    <section class="card">
+      <h2>Inflation – France vs Euro Area</h2>
+      <div id="inflationChart" class="chart"></div>
+    </section>
 
+    <section class="card">
+      <h2>Unemployment – France vs Euro Area</h2>
+      <div id="unemploymentChart" class="chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>GDP Growth (YoY) – France vs EA</h2>
+      <div id="gdpChart" class="chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>Industrial Production – France</h2>
+      <div id="ipiChart" class="chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>Current Account (% GDP) – France</h2>
+      <div id="caChart" class="chart"></div>
+    </section>
+
+    <section class="card">
+      <h2>EUR/USD Exchange Rate</h2>
+      <div id="eurusdChart" class="chart"></div>
+    </section>
+
+    <section class="card card-full">
+      <h2>10-Year Government Bond Yield – France</h2>
+      <div id="bondChart" class="chart"></div>
+    </section>
+
+    <section class="card card-full">
+      <h2>ECB Main Refinancing Rate</h2>
+      <div id="ecbChart" class="chart"></div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>European Economic Monitor · Built by Q. · Data from OECD & European Central Bank</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

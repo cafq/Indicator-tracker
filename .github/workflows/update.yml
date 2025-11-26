@@ -1,0 +1,37 @@
+name: Update Economic Data
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # update every day at 03:00 UTC
+  workflow_dispatch:       # allow manual update
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run update script
+        run: python scripts/update_data.py
+
+      - name: Commit updated data
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add data/*.json
+          git commit -m "Auto-update data" || echo "No changes"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
